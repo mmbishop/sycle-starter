@@ -3,7 +3,8 @@ grammar Sycle;
 start : additiveExpression;
 additiveExpression : multiplicativeExpression | additiveExpression '+' multiplicativeExpression | additiveExpression '-' multiplicativeExpression;
 multiplicativeExpression : unaryExpression | multiplicativeExpression '*' unaryExpression | multiplicativeExpression '/' unaryExpression;
-unaryExpression : '+' unaryExpression | '-' unaryExpression | '(' additiveExpression ')' | primary;
+unaryExpression : unaryNotPlusMinusExpression | '+' unaryExpression | '-' unaryExpression;
+unaryNotPlusMinusExpression : primary | '(' additiveExpression ')';
 primary : NUMBER;
 
 NUMBER : DIGIT+ | DIGIT+ '.' DIGIT* | '.' DIGIT+;
