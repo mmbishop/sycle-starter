@@ -1,9 +1,13 @@
-// Generated from /Users/Michael/IdeaProjects/sycle/src/main/java/com/mikebishop/sycle/parser/Sycle.g4 by ANTLR 4.10.1
+// Generated from /Users/Michael/IdeaProjects/sycle-starter/src/main/java/com/mikebishop/sycle/language/parser/Sycle.g4 by ANTLR 4.10.1
 package com.mikebishop.sycle.language.parser;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
+import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class SycleParser extends Parser {
@@ -16,11 +20,11 @@ public class SycleParser extends Parser {
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, NUMBER=7, WS=8;
 	public static final int
 		RULE_start = 0, RULE_additiveExpression = 1, RULE_multiplicativeExpression = 2, 
-		RULE_unaryExpression = 3, RULE_primary = 4;
+		RULE_unaryExpression = 3, RULE_unaryExpressionNotPlusMinus = 4, RULE_primary = 5;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"start", "additiveExpression", "multiplicativeExpression", "unaryExpression", 
-			"primary"
+			"unaryExpressionNotPlusMinus", "primary"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -116,7 +120,7 @@ public class SycleParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(10);
+			setState(12);
 			additiveExpression(0);
 			}
 		}
@@ -173,11 +177,11 @@ public class SycleParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(13);
+			setState(15);
 			multiplicativeExpression(0);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(23);
+			setState(25);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -185,18 +189,18 @@ public class SycleParser extends Parser {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(21);
+					setState(23);
 					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
 					case 1:
 						{
 						_localctx = new AdditiveExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_additiveExpression);
-						setState(15);
-						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(16);
-						match(T__0);
 						setState(17);
+						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
+						setState(18);
+						match(T__0);
+						setState(19);
 						multiplicativeExpression(0);
 						}
 						break;
@@ -204,18 +208,18 @@ public class SycleParser extends Parser {
 						{
 						_localctx = new AdditiveExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_additiveExpression);
-						setState(18);
-						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-						setState(19);
-						match(T__1);
 						setState(20);
+						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
+						setState(21);
+						match(T__1);
+						setState(22);
 						multiplicativeExpression(0);
 						}
 						break;
 					}
 					} 
 				}
-				setState(25);
+				setState(27);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
 			}
@@ -274,11 +278,11 @@ public class SycleParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(27);
+			setState(29);
 			unaryExpression();
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(37);
+			setState(39);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -286,18 +290,18 @@ public class SycleParser extends Parser {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(35);
+					setState(37);
 					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 					case 1:
 						{
 						_localctx = new MultiplicativeExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_multiplicativeExpression);
-						setState(29);
-						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(30);
-						match(T__2);
 						setState(31);
+						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
+						setState(32);
+						match(T__2);
+						setState(33);
 						unaryExpression();
 						}
 						break;
@@ -305,18 +309,18 @@ public class SycleParser extends Parser {
 						{
 						_localctx = new MultiplicativeExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_multiplicativeExpression);
-						setState(32);
-						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-						setState(33);
-						match(T__3);
 						setState(34);
+						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
+						setState(35);
+						match(T__3);
+						setState(36);
 						unaryExpression();
 						}
 						break;
 					}
 					} 
 				}
-				setState(39);
+				setState(41);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			}
@@ -334,14 +338,11 @@ public class SycleParser extends Parser {
 	}
 
 	public static class UnaryExpressionContext extends ParserRuleContext {
+		public UnaryExpressionNotPlusMinusContext unaryExpressionNotPlusMinus() {
+			return getRuleContext(UnaryExpressionNotPlusMinusContext.class,0);
+		}
 		public UnaryExpressionContext unaryExpression() {
 			return getRuleContext(UnaryExpressionContext.class,0);
-		}
-		public AdditiveExpressionContext additiveExpression() {
-			return getRuleContext(AdditiveExpressionContext.class,0);
-		}
-		public PrimaryContext primary() {
-			return getRuleContext(PrimaryContext.class,0);
 		}
 		public UnaryExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -366,43 +367,99 @@ public class SycleParser extends Parser {
 		UnaryExpressionContext _localctx = new UnaryExpressionContext(_ctx, getState());
 		enterRule(_localctx, 6, RULE_unaryExpression);
 		try {
-			setState(49);
+			setState(47);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
-			case T__0:
+			case T__4:
+			case NUMBER:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(40);
+				setState(42);
+				unaryExpressionNotPlusMinus();
+				}
+				break;
+			case T__0:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(43);
 				match(T__0);
-				setState(41);
+				setState(44);
 				unaryExpression();
 				}
 				break;
 			case T__1:
-				enterOuterAlt(_localctx, 2);
+				enterOuterAlt(_localctx, 3);
 				{
-				setState(42);
+				setState(45);
 				match(T__1);
-				setState(43);
+				setState(46);
 				unaryExpression();
 				}
 				break;
-			case T__4:
-				enterOuterAlt(_localctx, 3);
+			default:
+				throw new NoViableAltException(this);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class UnaryExpressionNotPlusMinusContext extends ParserRuleContext {
+		public PrimaryContext primary() {
+			return getRuleContext(PrimaryContext.class,0);
+		}
+		public AdditiveExpressionContext additiveExpression() {
+			return getRuleContext(AdditiveExpressionContext.class,0);
+		}
+		public UnaryExpressionNotPlusMinusContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_unaryExpressionNotPlusMinus; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SycleListener ) ((SycleListener)listener).enterUnaryExpressionNotPlusMinus(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SycleListener ) ((SycleListener)listener).exitUnaryExpressionNotPlusMinus(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SycleVisitor ) return ((SycleVisitor<? extends T>)visitor).visitUnaryExpressionNotPlusMinus(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final UnaryExpressionNotPlusMinusContext unaryExpressionNotPlusMinus() throws RecognitionException {
+		UnaryExpressionNotPlusMinusContext _localctx = new UnaryExpressionNotPlusMinusContext(_ctx, getState());
+		enterRule(_localctx, 8, RULE_unaryExpressionNotPlusMinus);
+		try {
+			setState(54);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case NUMBER:
+				enterOuterAlt(_localctx, 1);
 				{
-				setState(44);
-				match(T__4);
-				setState(45);
-				additiveExpression(0);
-				setState(46);
-				match(T__5);
+				setState(49);
+				primary();
 				}
 				break;
-			case NUMBER:
-				enterOuterAlt(_localctx, 4);
+			case T__4:
+				enterOuterAlt(_localctx, 2);
 				{
-				setState(48);
-				primary();
+				setState(50);
+				match(T__4);
+				setState(51);
+				additiveExpression(0);
+				setState(52);
+				match(T__5);
 				}
 				break;
 			default:
@@ -443,11 +500,11 @@ public class SycleParser extends Parser {
 
 	public final PrimaryContext primary() throws RecognitionException {
 		PrimaryContext _localctx = new PrimaryContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_primary);
+		enterRule(_localctx, 10, RULE_primary);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(51);
+			setState(56);
 			match(NUMBER);
 			}
 		}
@@ -491,40 +548,42 @@ public class SycleParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\b6\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
-		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0001"+
-		"\u0000\u0001\u0000\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
-		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0005\u0001\u0016"+
-		"\b\u0001\n\u0001\f\u0001\u0019\t\u0001\u0001\u0002\u0001\u0002\u0001\u0002"+
+		"\u0004\u0001\b;\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
+		"\u0005\u0007\u0005\u0001\u0000\u0001\u0000\u0001\u0001\u0001\u0001\u0001"+
+		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
+		"\u0001\u0005\u0001\u0018\b\u0001\n\u0001\f\u0001\u001b\t\u0001\u0001\u0002"+
 		"\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002"+
-		"\u0005\u0002$\b\u0002\n\u0002\f\u0002\'\t\u0002\u0001\u0003\u0001\u0003"+
-		"\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003"+
-		"\u0001\u0003\u0003\u00032\b\u0003\u0001\u0004\u0001\u0004\u0001\u0004"+
-		"\u0000\u0002\u0002\u0004\u0005\u0000\u0002\u0004\u0006\b\u0000\u00007"+
-		"\u0000\n\u0001\u0000\u0000\u0000\u0002\f\u0001\u0000\u0000\u0000\u0004"+
-		"\u001a\u0001\u0000\u0000\u0000\u00061\u0001\u0000\u0000\u0000\b3\u0001"+
-		"\u0000\u0000\u0000\n\u000b\u0003\u0002\u0001\u0000\u000b\u0001\u0001\u0000"+
-		"\u0000\u0000\f\r\u0006\u0001\uffff\uffff\u0000\r\u000e\u0003\u0004\u0002"+
-		"\u0000\u000e\u0017\u0001\u0000\u0000\u0000\u000f\u0010\n\u0002\u0000\u0000"+
-		"\u0010\u0011\u0005\u0001\u0000\u0000\u0011\u0016\u0003\u0004\u0002\u0000"+
-		"\u0012\u0013\n\u0001\u0000\u0000\u0013\u0014\u0005\u0002\u0000\u0000\u0014"+
-		"\u0016\u0003\u0004\u0002\u0000\u0015\u000f\u0001\u0000\u0000\u0000\u0015"+
-		"\u0012\u0001\u0000\u0000\u0000\u0016\u0019\u0001\u0000\u0000\u0000\u0017"+
-		"\u0015\u0001\u0000\u0000\u0000\u0017\u0018\u0001\u0000\u0000\u0000\u0018"+
-		"\u0003\u0001\u0000\u0000\u0000\u0019\u0017\u0001\u0000\u0000\u0000\u001a"+
-		"\u001b\u0006\u0002\uffff\uffff\u0000\u001b\u001c\u0003\u0006\u0003\u0000"+
-		"\u001c%\u0001\u0000\u0000\u0000\u001d\u001e\n\u0002\u0000\u0000\u001e"+
-		"\u001f\u0005\u0003\u0000\u0000\u001f$\u0003\u0006\u0003\u0000 !\n\u0001"+
-		"\u0000\u0000!\"\u0005\u0004\u0000\u0000\"$\u0003\u0006\u0003\u0000#\u001d"+
-		"\u0001\u0000\u0000\u0000# \u0001\u0000\u0000\u0000$\'\u0001\u0000\u0000"+
-		"\u0000%#\u0001\u0000\u0000\u0000%&\u0001\u0000\u0000\u0000&\u0005\u0001"+
-		"\u0000\u0000\u0000\'%\u0001\u0000\u0000\u0000()\u0005\u0001\u0000\u0000"+
-		")2\u0003\u0006\u0003\u0000*+\u0005\u0002\u0000\u0000+2\u0003\u0006\u0003"+
-		"\u0000,-\u0005\u0005\u0000\u0000-.\u0003\u0002\u0001\u0000./\u0005\u0006"+
-		"\u0000\u0000/2\u0001\u0000\u0000\u000002\u0003\b\u0004\u00001(\u0001\u0000"+
-		"\u0000\u00001*\u0001\u0000\u0000\u00001,\u0001\u0000\u0000\u000010\u0001"+
-		"\u0000\u0000\u00002\u0007\u0001\u0000\u0000\u000034\u0005\u0007\u0000"+
-		"\u00004\t\u0001\u0000\u0000\u0000\u0005\u0015\u0017#%1";
+		"\u0001\u0002\u0001\u0002\u0005\u0002&\b\u0002\n\u0002\f\u0002)\t\u0002"+
+		"\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0003\u0003"+
+		"0\b\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004"+
+		"\u0003\u00047\b\u0004\u0001\u0005\u0001\u0005\u0001\u0005\u0000\u0002"+
+		"\u0002\u0004\u0006\u0000\u0002\u0004\u0006\b\n\u0000\u0000;\u0000\f\u0001"+
+		"\u0000\u0000\u0000\u0002\u000e\u0001\u0000\u0000\u0000\u0004\u001c\u0001"+
+		"\u0000\u0000\u0000\u0006/\u0001\u0000\u0000\u0000\b6\u0001\u0000\u0000"+
+		"\u0000\n8\u0001\u0000\u0000\u0000\f\r\u0003\u0002\u0001\u0000\r\u0001"+
+		"\u0001\u0000\u0000\u0000\u000e\u000f\u0006\u0001\uffff\uffff\u0000\u000f"+
+		"\u0010\u0003\u0004\u0002\u0000\u0010\u0019\u0001\u0000\u0000\u0000\u0011"+
+		"\u0012\n\u0002\u0000\u0000\u0012\u0013\u0005\u0001\u0000\u0000\u0013\u0018"+
+		"\u0003\u0004\u0002\u0000\u0014\u0015\n\u0001\u0000\u0000\u0015\u0016\u0005"+
+		"\u0002\u0000\u0000\u0016\u0018\u0003\u0004\u0002\u0000\u0017\u0011\u0001"+
+		"\u0000\u0000\u0000\u0017\u0014\u0001\u0000\u0000\u0000\u0018\u001b\u0001"+
+		"\u0000\u0000\u0000\u0019\u0017\u0001\u0000\u0000\u0000\u0019\u001a\u0001"+
+		"\u0000\u0000\u0000\u001a\u0003\u0001\u0000\u0000\u0000\u001b\u0019\u0001"+
+		"\u0000\u0000\u0000\u001c\u001d\u0006\u0002\uffff\uffff\u0000\u001d\u001e"+
+		"\u0003\u0006\u0003\u0000\u001e\'\u0001\u0000\u0000\u0000\u001f \n\u0002"+
+		"\u0000\u0000 !\u0005\u0003\u0000\u0000!&\u0003\u0006\u0003\u0000\"#\n"+
+		"\u0001\u0000\u0000#$\u0005\u0004\u0000\u0000$&\u0003\u0006\u0003\u0000"+
+		"%\u001f\u0001\u0000\u0000\u0000%\"\u0001\u0000\u0000\u0000&)\u0001\u0000"+
+		"\u0000\u0000\'%\u0001\u0000\u0000\u0000\'(\u0001\u0000\u0000\u0000(\u0005"+
+		"\u0001\u0000\u0000\u0000)\'\u0001\u0000\u0000\u0000*0\u0003\b\u0004\u0000"+
+		"+,\u0005\u0001\u0000\u0000,0\u0003\u0006\u0003\u0000-.\u0005\u0002\u0000"+
+		"\u0000.0\u0003\u0006\u0003\u0000/*\u0001\u0000\u0000\u0000/+\u0001\u0000"+
+		"\u0000\u0000/-\u0001\u0000\u0000\u00000\u0007\u0001\u0000\u0000\u0000"+
+		"17\u0003\n\u0005\u000023\u0005\u0005\u0000\u000034\u0003\u0002\u0001\u0000"+
+		"45\u0005\u0006\u0000\u000057\u0001\u0000\u0000\u000061\u0001\u0000\u0000"+
+		"\u000062\u0001\u0000\u0000\u00007\t\u0001\u0000\u0000\u000089\u0005\u0007"+
+		"\u0000\u00009\u000b\u0001\u0000\u0000\u0000\u0006\u0017\u0019%\'/6";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

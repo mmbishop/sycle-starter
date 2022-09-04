@@ -1,4 +1,4 @@
-// Generated from /Users/Michael/IdeaProjects/sycle/src/main/java/com/mikebishop/sycle/parser/Sycle.g4 by ANTLR 4.10.1
+// Generated from /Users/Michael/IdeaProjects/sycle-starter/src/main/java/com/mikebishop/sycle/language/parser/Sycle.g4 by ANTLR 4.10.1
 package com.mikebishop.sycle.language.parser;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -34,6 +34,12 @@ public interface SycleVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitUnaryExpression(SycleParser.UnaryExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SycleParser#unaryExpressionNotPlusMinus}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitUnaryExpressionNotPlusMinus(SycleParser.UnaryExpressionNotPlusMinusContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SycleParser#primary}.
 	 * @param ctx the parse tree

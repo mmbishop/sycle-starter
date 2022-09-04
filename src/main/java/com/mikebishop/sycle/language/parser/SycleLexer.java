@@ -1,4 +1,4 @@
-// Generated from /Users/Michael/IdeaProjects/sycle/src/main/java/com/mikebishop/sycle/parser/Sycle.g4 by ANTLR 4.10.1
+// Generated from /Users/Michael/IdeaProjects/sycle-starter/src/main/java/com/mikebishop/sycle/language/parser/Sycle.g4 by ANTLR 4.10.1
 package com.mikebishop.sycle.language.parser;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
