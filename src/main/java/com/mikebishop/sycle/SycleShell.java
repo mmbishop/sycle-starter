@@ -12,7 +12,7 @@ import java.util.Objects;
 @Component
 public class SycleShell {
 
-    private SycleEvaluationService service;
+    private final SycleEvaluationService service;
 
     @Autowired
     public SycleShell(SycleEvaluationService service) {
