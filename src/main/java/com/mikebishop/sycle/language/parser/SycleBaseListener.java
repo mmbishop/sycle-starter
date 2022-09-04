@@ -64,18 +64,6 @@ public class SycleBaseListener implements SycleListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterUnaryExpressionNotPlusMinus(SycleParser.UnaryExpressionNotPlusMinusContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitUnaryExpressionNotPlusMinus(SycleParser.UnaryExpressionNotPlusMinusContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterPrimary(SycleParser.PrimaryContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -83,6 +71,18 @@ public class SycleBaseListener implements SycleListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitPrimary(SycleParser.PrimaryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLiteral(SycleParser.LiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLiteral(SycleParser.LiteralContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

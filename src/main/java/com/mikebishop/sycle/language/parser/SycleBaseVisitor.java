@@ -45,12 +45,12 @@ public class SycleBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements 
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitUnaryExpressionNotPlusMinus(SycleParser.UnaryExpressionNotPlusMinusContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPrimary(SycleParser.PrimaryContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPrimary(SycleParser.PrimaryContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLiteral(SycleParser.LiteralContext ctx) { return visitChildren(ctx); }
 }

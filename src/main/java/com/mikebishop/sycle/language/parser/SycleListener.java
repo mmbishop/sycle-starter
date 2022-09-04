@@ -48,16 +48,6 @@ public interface SycleListener extends ParseTreeListener {
 	 */
 	void exitUnaryExpression(SycleParser.UnaryExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SycleParser#unaryExpressionNotPlusMinus}.
-	 * @param ctx the parse tree
-	 */
-	void enterUnaryExpressionNotPlusMinus(SycleParser.UnaryExpressionNotPlusMinusContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link SycleParser#unaryExpressionNotPlusMinus}.
-	 * @param ctx the parse tree
-	 */
-	void exitUnaryExpressionNotPlusMinus(SycleParser.UnaryExpressionNotPlusMinusContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link SycleParser#primary}.
 	 * @param ctx the parse tree
 	 */
@@ -67,4 +57,14 @@ public interface SycleListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitPrimary(SycleParser.PrimaryContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SycleParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void enterLiteral(SycleParser.LiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SycleParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void exitLiteral(SycleParser.LiteralContext ctx);
 }

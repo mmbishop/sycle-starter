@@ -35,15 +35,15 @@ public interface SycleVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitUnaryExpression(SycleParser.UnaryExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SycleParser#unaryExpressionNotPlusMinus}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitUnaryExpressionNotPlusMinus(SycleParser.UnaryExpressionNotPlusMinusContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link SycleParser#primary}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitPrimary(SycleParser.PrimaryContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SycleParser#literal}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLiteral(SycleParser.LiteralContext ctx);
 }

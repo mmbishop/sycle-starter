@@ -62,7 +62,7 @@ public class SycleExecutor extends SycleBaseListener {
     }
 
     @Override
-    public void exitPrimary(SycleParser.PrimaryContext ctx) {
+    public void exitLiteral(SycleParser.LiteralContext ctx) {
         ParseTree child = ctx.getChild(0);
         String primaryText = child.getText();
         operandStack.push(Double.valueOf(primaryText));

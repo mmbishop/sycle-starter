@@ -20,11 +20,11 @@ public class SycleParser extends Parser {
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, NUMBER=7, WS=8;
 	public static final int
 		RULE_start = 0, RULE_additiveExpression = 1, RULE_multiplicativeExpression = 2, 
-		RULE_unaryExpression = 3, RULE_unaryExpressionNotPlusMinus = 4, RULE_primary = 5;
+		RULE_unaryExpression = 3, RULE_primary = 4, RULE_literal = 5;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"start", "additiveExpression", "multiplicativeExpression", "unaryExpression", 
-			"unaryExpressionNotPlusMinus", "primary"
+			"primary", "literal"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -338,8 +338,8 @@ public class SycleParser extends Parser {
 	}
 
 	public static class UnaryExpressionContext extends ParserRuleContext {
-		public UnaryExpressionNotPlusMinusContext unaryExpressionNotPlusMinus() {
-			return getRuleContext(UnaryExpressionNotPlusMinusContext.class,0);
+		public PrimaryContext primary() {
+			return getRuleContext(PrimaryContext.class,0);
 		}
 		public UnaryExpressionContext unaryExpression() {
 			return getRuleContext(UnaryExpressionContext.class,0);
@@ -375,7 +375,7 @@ public class SycleParser extends Parser {
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(42);
-				unaryExpressionNotPlusMinus();
+				primary();
 				}
 				break;
 			case T__0:
@@ -411,35 +411,35 @@ public class SycleParser extends Parser {
 		return _localctx;
 	}
 
-	public static class UnaryExpressionNotPlusMinusContext extends ParserRuleContext {
-		public PrimaryContext primary() {
-			return getRuleContext(PrimaryContext.class,0);
+	public static class PrimaryContext extends ParserRuleContext {
+		public LiteralContext literal() {
+			return getRuleContext(LiteralContext.class,0);
 		}
 		public AdditiveExpressionContext additiveExpression() {
 			return getRuleContext(AdditiveExpressionContext.class,0);
 		}
-		public UnaryExpressionNotPlusMinusContext(ParserRuleContext parent, int invokingState) {
+		public PrimaryContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_unaryExpressionNotPlusMinus; }
+		@Override public int getRuleIndex() { return RULE_primary; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SycleListener ) ((SycleListener)listener).enterUnaryExpressionNotPlusMinus(this);
+			if ( listener instanceof SycleListener ) ((SycleListener)listener).enterPrimary(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SycleListener ) ((SycleListener)listener).exitUnaryExpressionNotPlusMinus(this);
+			if ( listener instanceof SycleListener ) ((SycleListener)listener).exitPrimary(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SycleVisitor ) return ((SycleVisitor<? extends T>)visitor).visitUnaryExpressionNotPlusMinus(this);
+			if ( visitor instanceof SycleVisitor ) return ((SycleVisitor<? extends T>)visitor).visitPrimary(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final UnaryExpressionNotPlusMinusContext unaryExpressionNotPlusMinus() throws RecognitionException {
-		UnaryExpressionNotPlusMinusContext _localctx = new UnaryExpressionNotPlusMinusContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_unaryExpressionNotPlusMinus);
+	public final PrimaryContext primary() throws RecognitionException {
+		PrimaryContext _localctx = new PrimaryContext(_ctx, getState());
+		enterRule(_localctx, 8, RULE_primary);
 		try {
 			setState(54);
 			_errHandler.sync(this);
@@ -448,7 +448,7 @@ public class SycleParser extends Parser {
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(49);
-				primary();
+				literal();
 				}
 				break;
 			case T__4:
@@ -477,30 +477,30 @@ public class SycleParser extends Parser {
 		return _localctx;
 	}
 
-	public static class PrimaryContext extends ParserRuleContext {
+	public static class LiteralContext extends ParserRuleContext {
 		public TerminalNode NUMBER() { return getToken(SycleParser.NUMBER, 0); }
-		public PrimaryContext(ParserRuleContext parent, int invokingState) {
+		public LiteralContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_primary; }
+		@Override public int getRuleIndex() { return RULE_literal; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SycleListener ) ((SycleListener)listener).enterPrimary(this);
+			if ( listener instanceof SycleListener ) ((SycleListener)listener).enterLiteral(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SycleListener ) ((SycleListener)listener).exitPrimary(this);
+			if ( listener instanceof SycleListener ) ((SycleListener)listener).exitLiteral(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SycleVisitor ) return ((SycleVisitor<? extends T>)visitor).visitPrimary(this);
+			if ( visitor instanceof SycleVisitor ) return ((SycleVisitor<? extends T>)visitor).visitLiteral(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final PrimaryContext primary() throws RecognitionException {
-		PrimaryContext _localctx = new PrimaryContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_primary);
+	public final LiteralContext literal() throws RecognitionException {
+		LiteralContext _localctx = new LiteralContext(_ctx, getState());
+		enterRule(_localctx, 10, RULE_literal);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{

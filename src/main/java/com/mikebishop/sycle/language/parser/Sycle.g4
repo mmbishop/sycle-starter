@@ -3,9 +3,9 @@ grammar Sycle;
 start : additiveExpression;
 additiveExpression : multiplicativeExpression | additiveExpression '+' multiplicativeExpression | additiveExpression '-' multiplicativeExpression;
 multiplicativeExpression : unaryExpression | multiplicativeExpression '*' unaryExpression | multiplicativeExpression '/' unaryExpression;
-unaryExpression : unaryExpressionNotPlusMinus | '+' unaryExpression | '-' unaryExpression;
-unaryExpressionNotPlusMinus : primary | '(' additiveExpression ')';
-primary : NUMBER;
+unaryExpression : primary | '+' unaryExpression | '-' unaryExpression;
+primary : literal | '(' additiveExpression ')';
+literal : NUMBER;
 
 NUMBER : DIGIT+ | DIGIT+ '.' DIGIT* | '.' DIGIT+;
 fragment DIGIT : [0-9];

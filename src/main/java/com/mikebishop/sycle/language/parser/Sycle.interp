@@ -25,8 +25,8 @@ start
 additiveExpression
 multiplicativeExpression
 unaryExpression
-unaryExpressionNotPlusMinus
 primary
+literal
 
 
 atn:
