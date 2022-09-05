@@ -1,5 +1,6 @@
 package com.mikebishop.sycle.language.processor;
 
+import com.mikebishop.sycle.memory.SymbolTable;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -67,7 +68,7 @@ public class SycleExpressionEvaluatorTest {
     }
 
     private void given_a_sycle_evaluator() {
-        evaluator = new SycleExpressionEvaluator();
+        evaluator = new SycleExpressionEvaluator(new SymbolTable());
     }
 
     private void when_the_evaluator_is_given_the_expression(String expression) {

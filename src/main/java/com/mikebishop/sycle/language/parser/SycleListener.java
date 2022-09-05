@@ -18,6 +18,16 @@ public interface SycleListener extends ParseTreeListener {
 	 */
 	void exitStart(SycleParser.StartContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link SycleParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpression(SycleParser.ExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SycleParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpression(SycleParser.ExpressionContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link SycleParser#additiveExpression}.
 	 * @param ctx the parse tree
 	 */
@@ -67,4 +77,14 @@ public interface SycleListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitLiteral(SycleParser.LiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SycleParser#assignmentExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterAssignmentExpression(SycleParser.AssignmentExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SycleParser#assignmentExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitAssignmentExpression(SycleParser.AssignmentExpressionContext ctx);
 }

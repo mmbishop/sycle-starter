@@ -2,18 +2,27 @@ package com.mikebishop.sycle.language.executor;
 
 import com.mikebishop.sycle.language.parser.SycleBaseListener;
 import com.mikebishop.sycle.language.parser.SycleParser;
+import com.mikebishop.sycle.memory.SymbolTable;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 public class SycleExecutor extends SycleBaseListener {
 
     private final OperandStack operandStack;
+    private final SymbolTable symbolTable;
 
-    public SycleExecutor() {
+    public SycleExecutor(SymbolTable symbolTable) {
         this.operandStack = new OperandStack();
+        this.symbolTable = symbolTable;
     }
 
     public Double getResult() {
         return operandStack.popDouble();
+    }
+
+    @Override
+    public void exitAssignmentExpression(SycleParser.AssignmentExpressionContext ctx) {
+        ParseTree identifierNode = ctx.getChild(0);
+        symbolTable.store(identifierNode.getText(), operandStack.getDouble());
     }
 
     @Override
@@ -65,6 +74,11 @@ public class SycleExecutor extends SycleBaseListener {
     public void exitLiteral(SycleParser.LiteralContext ctx) {
         ParseTree child = ctx.getChild(0);
         String primaryText = child.getText();
-        operandStack.push(Double.valueOf(primaryText));
+        if (ctx.NUMBER() != null) {
+            operandStack.push(Double.valueOf(primaryText));
+        }
+        else {
+            operandStack.push(symbolTable.recall(primaryText));
+        }
     }
 }

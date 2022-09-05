@@ -17,6 +17,12 @@ public interface SycleVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStart(SycleParser.StartContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link SycleParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpression(SycleParser.ExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link SycleParser#additiveExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -46,4 +52,10 @@ public interface SycleVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitLiteral(SycleParser.LiteralContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SycleParser#assignmentExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssignmentExpression(SycleParser.AssignmentExpressionContext ctx);
 }
