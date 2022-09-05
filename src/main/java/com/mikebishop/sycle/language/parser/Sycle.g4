@@ -1,6 +1,6 @@
 grammar Sycle;
 
-start : expression;
+start : expression EOF;
 expression : additiveExpression | assignmentExpression;
 additiveExpression : multiplicativeExpression | additiveExpression '+' multiplicativeExpression | additiveExpression '-' multiplicativeExpression;
 multiplicativeExpression : unaryExpression | multiplicativeExpression '*' unaryExpression | multiplicativeExpression '/' unaryExpression;
