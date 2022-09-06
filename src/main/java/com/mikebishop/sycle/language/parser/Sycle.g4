@@ -5,9 +5,11 @@ expression : additiveExpression | assignmentExpression;
 additiveExpression : multiplicativeExpression | additiveExpression '+' multiplicativeExpression | additiveExpression '-' multiplicativeExpression;
 multiplicativeExpression : unaryExpression | multiplicativeExpression '*' unaryExpression | multiplicativeExpression '/' unaryExpression;
 unaryExpression : primary | '+' unaryExpression | '-' unaryExpression;
-primary : literal | '(' additiveExpression ')';
-literal : NUMBER | IDENTIFIER;
-assignmentExpression : IDENTIFIER '=' additiveExpression;
+primary : literal | identifierReference | '(' additiveExpression ')';
+literal : NUMBER;
+identifierReference: IDENTIFIER;
+assignmentExpression : declaredIdentifier '=' additiveExpression;
+declaredIdentifier : IDENTIFIER;
 
 NUMBER : DIGIT+ | DIGIT+ '.' DIGIT* | '.' DIGIT+;
 IDENTIFIER : LETTER (LETTER | DIGIT | '_')*;

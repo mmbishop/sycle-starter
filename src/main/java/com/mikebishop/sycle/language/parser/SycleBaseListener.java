@@ -100,6 +100,18 @@ public class SycleBaseListener implements SycleListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterIdentifierReference(SycleParser.IdentifierReferenceContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIdentifierReference(SycleParser.IdentifierReferenceContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterAssignmentExpression(SycleParser.AssignmentExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -107,6 +119,18 @@ public class SycleBaseListener implements SycleListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitAssignmentExpression(SycleParser.AssignmentExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclaredIdentifier(SycleParser.DeclaredIdentifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclaredIdentifier(SycleParser.DeclaredIdentifierContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

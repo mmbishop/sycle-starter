@@ -21,11 +21,13 @@ public class SycleParser extends Parser {
 		WS=10;
 	public static final int
 		RULE_start = 0, RULE_expression = 1, RULE_additiveExpression = 2, RULE_multiplicativeExpression = 3, 
-		RULE_unaryExpression = 4, RULE_primary = 5, RULE_literal = 6, RULE_assignmentExpression = 7;
+		RULE_unaryExpression = 4, RULE_primary = 5, RULE_literal = 6, RULE_identifierReference = 7, 
+		RULE_assignmentExpression = 8, RULE_declaredIdentifier = 9;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"start", "expression", "additiveExpression", "multiplicativeExpression", 
-			"unaryExpression", "primary", "literal", "assignmentExpression"
+			"unaryExpression", "primary", "literal", "identifierReference", "assignmentExpression", 
+			"declaredIdentifier"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -123,9 +125,9 @@ public class SycleParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(16);
+			setState(20);
 			expression();
-			setState(17);
+			setState(21);
 			match(EOF);
 			}
 		}
@@ -170,20 +172,20 @@ public class SycleParser extends Parser {
 		ExpressionContext _localctx = new ExpressionContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_expression);
 		try {
-			setState(21);
+			setState(25);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(19);
+				setState(23);
 				additiveExpression(0);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(20);
+				setState(24);
 				assignmentExpression();
 				}
 				break;
@@ -242,11 +244,11 @@ public class SycleParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(24);
+			setState(28);
 			multiplicativeExpression(0);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(34);
+			setState(38);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -254,18 +256,18 @@ public class SycleParser extends Parser {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(32);
+					setState(36);
 					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
 					case 1:
 						{
 						_localctx = new AdditiveExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_additiveExpression);
-						setState(26);
+						setState(30);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(27);
+						setState(31);
 						match(T__0);
-						setState(28);
+						setState(32);
 						multiplicativeExpression(0);
 						}
 						break;
@@ -273,18 +275,18 @@ public class SycleParser extends Parser {
 						{
 						_localctx = new AdditiveExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_additiveExpression);
-						setState(29);
+						setState(33);
 						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-						setState(30);
+						setState(34);
 						match(T__1);
-						setState(31);
+						setState(35);
 						multiplicativeExpression(0);
 						}
 						break;
 					}
 					} 
 				}
-				setState(36);
+				setState(40);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
 			}
@@ -343,11 +345,11 @@ public class SycleParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(38);
+			setState(42);
 			unaryExpression();
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(48);
+			setState(52);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -355,18 +357,18 @@ public class SycleParser extends Parser {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(46);
+					setState(50);
 					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
 					case 1:
 						{
 						_localctx = new MultiplicativeExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_multiplicativeExpression);
-						setState(40);
+						setState(44);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(41);
+						setState(45);
 						match(T__2);
-						setState(42);
+						setState(46);
 						unaryExpression();
 						}
 						break;
@@ -374,18 +376,18 @@ public class SycleParser extends Parser {
 						{
 						_localctx = new MultiplicativeExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_multiplicativeExpression);
-						setState(43);
+						setState(47);
 						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-						setState(44);
+						setState(48);
 						match(T__3);
-						setState(45);
+						setState(49);
 						unaryExpression();
 						}
 						break;
 					}
 					} 
 				}
-				setState(50);
+				setState(54);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			}
@@ -432,7 +434,7 @@ public class SycleParser extends Parser {
 		UnaryExpressionContext _localctx = new UnaryExpressionContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_unaryExpression);
 		try {
-			setState(56);
+			setState(60);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__4:
@@ -440,25 +442,25 @@ public class SycleParser extends Parser {
 			case IDENTIFIER:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(51);
+				setState(55);
 				primary();
 				}
 				break;
 			case T__0:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(52);
+				setState(56);
 				match(T__0);
-				setState(53);
+				setState(57);
 				unaryExpression();
 				}
 				break;
 			case T__1:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(54);
+				setState(58);
 				match(T__1);
-				setState(55);
+				setState(59);
 				unaryExpression();
 				}
 				break;
@@ -480,6 +482,9 @@ public class SycleParser extends Parser {
 	public static class PrimaryContext extends ParserRuleContext {
 		public LiteralContext literal() {
 			return getRuleContext(LiteralContext.class,0);
+		}
+		public IdentifierReferenceContext identifierReference() {
+			return getRuleContext(IdentifierReferenceContext.class,0);
 		}
 		public AdditiveExpressionContext additiveExpression() {
 			return getRuleContext(AdditiveExpressionContext.class,0);
@@ -507,25 +512,31 @@ public class SycleParser extends Parser {
 		PrimaryContext _localctx = new PrimaryContext(_ctx, getState());
 		enterRule(_localctx, 10, RULE_primary);
 		try {
-			setState(63);
+			setState(68);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case NUMBER:
-			case IDENTIFIER:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(58);
+				setState(62);
 				literal();
 				}
 				break;
-			case T__4:
+			case IDENTIFIER:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(59);
+				setState(63);
+				identifierReference();
+				}
+				break;
+			case T__4:
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(64);
 				match(T__4);
-				setState(60);
+				setState(65);
 				additiveExpression(0);
-				setState(61);
+				setState(66);
 				match(T__5);
 				}
 				break;
@@ -546,7 +557,6 @@ public class SycleParser extends Parser {
 
 	public static class LiteralContext extends ParserRuleContext {
 		public TerminalNode NUMBER() { return getToken(SycleParser.NUMBER, 0); }
-		public TerminalNode IDENTIFIER() { return getToken(SycleParser.IDENTIFIER, 0); }
 		public LiteralContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -569,20 +579,53 @@ public class SycleParser extends Parser {
 	public final LiteralContext literal() throws RecognitionException {
 		LiteralContext _localctx = new LiteralContext(_ctx, getState());
 		enterRule(_localctx, 12, RULE_literal);
-		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(65);
-			_la = _input.LA(1);
-			if ( !(_la==NUMBER || _la==IDENTIFIER) ) {
-			_errHandler.recoverInline(this);
+			setState(70);
+			match(NUMBER);
 			}
-			else {
-				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-				_errHandler.reportMatch(this);
-				consume();
-			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class IdentifierReferenceContext extends ParserRuleContext {
+		public TerminalNode IDENTIFIER() { return getToken(SycleParser.IDENTIFIER, 0); }
+		public IdentifierReferenceContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_identifierReference; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SycleListener ) ((SycleListener)listener).enterIdentifierReference(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SycleListener ) ((SycleListener)listener).exitIdentifierReference(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SycleVisitor ) return ((SycleVisitor<? extends T>)visitor).visitIdentifierReference(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final IdentifierReferenceContext identifierReference() throws RecognitionException {
+		IdentifierReferenceContext _localctx = new IdentifierReferenceContext(_ctx, getState());
+		enterRule(_localctx, 14, RULE_identifierReference);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(72);
+			match(IDENTIFIER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -597,7 +640,9 @@ public class SycleParser extends Parser {
 	}
 
 	public static class AssignmentExpressionContext extends ParserRuleContext {
-		public TerminalNode IDENTIFIER() { return getToken(SycleParser.IDENTIFIER, 0); }
+		public DeclaredIdentifierContext declaredIdentifier() {
+			return getRuleContext(DeclaredIdentifierContext.class,0);
+		}
 		public AdditiveExpressionContext additiveExpression() {
 			return getRuleContext(AdditiveExpressionContext.class,0);
 		}
@@ -622,16 +667,58 @@ public class SycleParser extends Parser {
 
 	public final AssignmentExpressionContext assignmentExpression() throws RecognitionException {
 		AssignmentExpressionContext _localctx = new AssignmentExpressionContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_assignmentExpression);
+		enterRule(_localctx, 16, RULE_assignmentExpression);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(67);
-			match(IDENTIFIER);
-			setState(68);
+			setState(74);
+			declaredIdentifier();
+			setState(75);
 			match(T__6);
-			setState(69);
+			setState(76);
 			additiveExpression(0);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class DeclaredIdentifierContext extends ParserRuleContext {
+		public TerminalNode IDENTIFIER() { return getToken(SycleParser.IDENTIFIER, 0); }
+		public DeclaredIdentifierContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_declaredIdentifier; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SycleListener ) ((SycleListener)listener).enterDeclaredIdentifier(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SycleListener ) ((SycleListener)listener).exitDeclaredIdentifier(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SycleVisitor ) return ((SycleVisitor<? extends T>)visitor).visitDeclaredIdentifier(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final DeclaredIdentifierContext declaredIdentifier() throws RecognitionException {
+		DeclaredIdentifierContext _localctx = new DeclaredIdentifierContext(_ctx, getState());
+		enterRule(_localctx, 18, RULE_declaredIdentifier);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(78);
+			match(IDENTIFIER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -674,48 +761,52 @@ public class SycleParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\nH\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0004\u0001\nQ\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
-		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0001"+
-		"\u0000\u0001\u0000\u0001\u0000\u0001\u0001\u0001\u0001\u0003\u0001\u0016"+
-		"\b\u0001\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001"+
-		"\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0005\u0002!\b\u0002\n\u0002"+
-		"\f\u0002$\t\u0002\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001"+
-		"\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0005\u0003/\b"+
-		"\u0003\n\u0003\f\u00032\t\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0001"+
-		"\u0004\u0001\u0004\u0003\u00049\b\u0004\u0001\u0005\u0001\u0005\u0001"+
-		"\u0005\u0001\u0005\u0001\u0005\u0003\u0005@\b\u0005\u0001\u0006\u0001"+
-		"\u0006\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0000"+
-		"\u0002\u0004\u0006\b\u0000\u0002\u0004\u0006\b\n\f\u000e\u0000\u0001\u0001"+
-		"\u0000\b\tG\u0000\u0010\u0001\u0000\u0000\u0000\u0002\u0015\u0001\u0000"+
-		"\u0000\u0000\u0004\u0017\u0001\u0000\u0000\u0000\u0006%\u0001\u0000\u0000"+
-		"\u0000\b8\u0001\u0000\u0000\u0000\n?\u0001\u0000\u0000\u0000\fA\u0001"+
-		"\u0000\u0000\u0000\u000eC\u0001\u0000\u0000\u0000\u0010\u0011\u0003\u0002"+
-		"\u0001\u0000\u0011\u0012\u0005\u0000\u0000\u0001\u0012\u0001\u0001\u0000"+
-		"\u0000\u0000\u0013\u0016\u0003\u0004\u0002\u0000\u0014\u0016\u0003\u000e"+
-		"\u0007\u0000\u0015\u0013\u0001\u0000\u0000\u0000\u0015\u0014\u0001\u0000"+
-		"\u0000\u0000\u0016\u0003\u0001\u0000\u0000\u0000\u0017\u0018\u0006\u0002"+
-		"\uffff\uffff\u0000\u0018\u0019\u0003\u0006\u0003\u0000\u0019\"\u0001\u0000"+
-		"\u0000\u0000\u001a\u001b\n\u0002\u0000\u0000\u001b\u001c\u0005\u0001\u0000"+
-		"\u0000\u001c!\u0003\u0006\u0003\u0000\u001d\u001e\n\u0001\u0000\u0000"+
-		"\u001e\u001f\u0005\u0002\u0000\u0000\u001f!\u0003\u0006\u0003\u0000 \u001a"+
-		"\u0001\u0000\u0000\u0000 \u001d\u0001\u0000\u0000\u0000!$\u0001\u0000"+
-		"\u0000\u0000\" \u0001\u0000\u0000\u0000\"#\u0001\u0000\u0000\u0000#\u0005"+
-		"\u0001\u0000\u0000\u0000$\"\u0001\u0000\u0000\u0000%&\u0006\u0003\uffff"+
-		"\uffff\u0000&\'\u0003\b\u0004\u0000\'0\u0001\u0000\u0000\u0000()\n\u0002"+
-		"\u0000\u0000)*\u0005\u0003\u0000\u0000*/\u0003\b\u0004\u0000+,\n\u0001"+
-		"\u0000\u0000,-\u0005\u0004\u0000\u0000-/\u0003\b\u0004\u0000.(\u0001\u0000"+
-		"\u0000\u0000.+\u0001\u0000\u0000\u0000/2\u0001\u0000\u0000\u00000.\u0001"+
-		"\u0000\u0000\u000001\u0001\u0000\u0000\u00001\u0007\u0001\u0000\u0000"+
-		"\u000020\u0001\u0000\u0000\u000039\u0003\n\u0005\u000045\u0005\u0001\u0000"+
-		"\u000059\u0003\b\u0004\u000067\u0005\u0002\u0000\u000079\u0003\b\u0004"+
-		"\u000083\u0001\u0000\u0000\u000084\u0001\u0000\u0000\u000086\u0001\u0000"+
-		"\u0000\u00009\t\u0001\u0000\u0000\u0000:@\u0003\f\u0006\u0000;<\u0005"+
-		"\u0005\u0000\u0000<=\u0003\u0004\u0002\u0000=>\u0005\u0006\u0000\u0000"+
-		">@\u0001\u0000\u0000\u0000?:\u0001\u0000\u0000\u0000?;\u0001\u0000\u0000"+
-		"\u0000@\u000b\u0001\u0000\u0000\u0000AB\u0007\u0000\u0000\u0000B\r\u0001"+
-		"\u0000\u0000\u0000CD\u0005\t\u0000\u0000DE\u0005\u0007\u0000\u0000EF\u0003"+
-		"\u0004\u0002\u0000F\u000f\u0001\u0000\u0000\u0000\u0007\u0015 \".08?";
+		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
+		"\b\u0007\b\u0002\t\u0007\t\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0001"+
+		"\u0001\u0001\u0003\u0001\u001a\b\u0001\u0001\u0002\u0001\u0002\u0001\u0002"+
+		"\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002"+
+		"\u0005\u0002%\b\u0002\n\u0002\f\u0002(\t\u0002\u0001\u0003\u0001\u0003"+
+		"\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003"+
+		"\u0001\u0003\u0005\u00033\b\u0003\n\u0003\f\u00036\t\u0003\u0001\u0004"+
+		"\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0003\u0004=\b\u0004"+
+		"\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005"+
+		"\u0003\u0005E\b\u0005\u0001\u0006\u0001\u0006\u0001\u0007\u0001\u0007"+
+		"\u0001\b\u0001\b\u0001\b\u0001\b\u0001\t\u0001\t\u0001\t\u0000\u0002\u0004"+
+		"\u0006\n\u0000\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0000\u0000O"+
+		"\u0000\u0014\u0001\u0000\u0000\u0000\u0002\u0019\u0001\u0000\u0000\u0000"+
+		"\u0004\u001b\u0001\u0000\u0000\u0000\u0006)\u0001\u0000\u0000\u0000\b"+
+		"<\u0001\u0000\u0000\u0000\nD\u0001\u0000\u0000\u0000\fF\u0001\u0000\u0000"+
+		"\u0000\u000eH\u0001\u0000\u0000\u0000\u0010J\u0001\u0000\u0000\u0000\u0012"+
+		"N\u0001\u0000\u0000\u0000\u0014\u0015\u0003\u0002\u0001\u0000\u0015\u0016"+
+		"\u0005\u0000\u0000\u0001\u0016\u0001\u0001\u0000\u0000\u0000\u0017\u001a"+
+		"\u0003\u0004\u0002\u0000\u0018\u001a\u0003\u0010\b\u0000\u0019\u0017\u0001"+
+		"\u0000\u0000\u0000\u0019\u0018\u0001\u0000\u0000\u0000\u001a\u0003\u0001"+
+		"\u0000\u0000\u0000\u001b\u001c\u0006\u0002\uffff\uffff\u0000\u001c\u001d"+
+		"\u0003\u0006\u0003\u0000\u001d&\u0001\u0000\u0000\u0000\u001e\u001f\n"+
+		"\u0002\u0000\u0000\u001f \u0005\u0001\u0000\u0000 %\u0003\u0006\u0003"+
+		"\u0000!\"\n\u0001\u0000\u0000\"#\u0005\u0002\u0000\u0000#%\u0003\u0006"+
+		"\u0003\u0000$\u001e\u0001\u0000\u0000\u0000$!\u0001\u0000\u0000\u0000"+
+		"%(\u0001\u0000\u0000\u0000&$\u0001\u0000\u0000\u0000&\'\u0001\u0000\u0000"+
+		"\u0000\'\u0005\u0001\u0000\u0000\u0000(&\u0001\u0000\u0000\u0000)*\u0006"+
+		"\u0003\uffff\uffff\u0000*+\u0003\b\u0004\u0000+4\u0001\u0000\u0000\u0000"+
+		",-\n\u0002\u0000\u0000-.\u0005\u0003\u0000\u0000.3\u0003\b\u0004\u0000"+
+		"/0\n\u0001\u0000\u000001\u0005\u0004\u0000\u000013\u0003\b\u0004\u0000"+
+		"2,\u0001\u0000\u0000\u00002/\u0001\u0000\u0000\u000036\u0001\u0000\u0000"+
+		"\u000042\u0001\u0000\u0000\u000045\u0001\u0000\u0000\u00005\u0007\u0001"+
+		"\u0000\u0000\u000064\u0001\u0000\u0000\u00007=\u0003\n\u0005\u000089\u0005"+
+		"\u0001\u0000\u00009=\u0003\b\u0004\u0000:;\u0005\u0002\u0000\u0000;=\u0003"+
+		"\b\u0004\u0000<7\u0001\u0000\u0000\u0000<8\u0001\u0000\u0000\u0000<:\u0001"+
+		"\u0000\u0000\u0000=\t\u0001\u0000\u0000\u0000>E\u0003\f\u0006\u0000?E"+
+		"\u0003\u000e\u0007\u0000@A\u0005\u0005\u0000\u0000AB\u0003\u0004\u0002"+
+		"\u0000BC\u0005\u0006\u0000\u0000CE\u0001\u0000\u0000\u0000D>\u0001\u0000"+
+		"\u0000\u0000D?\u0001\u0000\u0000\u0000D@\u0001\u0000\u0000\u0000E\u000b"+
+		"\u0001\u0000\u0000\u0000FG\u0005\b\u0000\u0000G\r\u0001\u0000\u0000\u0000"+
+		"HI\u0005\t\u0000\u0000I\u000f\u0001\u0000\u0000\u0000JK\u0003\u0012\t"+
+		"\u0000KL\u0005\u0007\u0000\u0000LM\u0003\u0004\u0002\u0000M\u0011\u0001"+
+		"\u0000\u0000\u0000NO\u0005\t\u0000\u0000O\u0013\u0001\u0000\u0000\u0000"+
+		"\u0007\u0019$&24<D";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

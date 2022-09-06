@@ -53,9 +53,21 @@ public interface SycleVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLiteral(SycleParser.LiteralContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link SycleParser#identifierReference}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIdentifierReference(SycleParser.IdentifierReferenceContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link SycleParser#assignmentExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitAssignmentExpression(SycleParser.AssignmentExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SycleParser#declaredIdentifier}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDeclaredIdentifier(SycleParser.DeclaredIdentifierContext ctx);
 }
