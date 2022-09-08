@@ -11,7 +11,7 @@ public class ArgumentList {
         arguments = new ArrayList<>();
     }
 
-    public void add(Double argument) {
+    public void addToBeginning(Double argument) {
         arguments.add(0, argument);
     }
 
