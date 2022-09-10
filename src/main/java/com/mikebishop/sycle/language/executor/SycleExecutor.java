@@ -73,11 +73,8 @@ public class SycleExecutor extends SycleBaseListener {
             Double operand = operandStack.popDouble();
             ParseTree signNode = ctx.getChild(0);
             String sign = signNode.getText();
-            switch (sign) {
-                case "+" -> operandStack.push(operand);
-                case "-" -> operandStack.push(-operand);
-                default -> {
-                }
+            if ("-".equals(sign)) {
+                operandStack.push(-operand);
             }
         }
     }
