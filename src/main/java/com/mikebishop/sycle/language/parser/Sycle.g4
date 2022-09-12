@@ -14,8 +14,8 @@ grammar Sycle;
 
 start : expression EOF;
 expression : additiveExpression | assignmentExpression;
-additiveExpression : multiplicativeExpression | additiveExpression '+' multiplicativeExpression | additiveExpression '-' multiplicativeExpression;
-multiplicativeExpression : unaryExpression | multiplicativeExpression '*' unaryExpression | multiplicativeExpression '/' unaryExpression;
+additiveExpression : multiplicativeExpression | additiveExpression ('+' | '-') multiplicativeExpression;
+multiplicativeExpression : unaryExpression | multiplicativeExpression ('*' | '/') unaryExpression;
 unaryExpression : primary | '+' unaryExpression | '-' unaryExpression;
 primary : literal | identifierReference | '(' additiveExpression ')';
 literal : NUMBER;
