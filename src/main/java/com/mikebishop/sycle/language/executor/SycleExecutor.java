@@ -16,6 +16,7 @@ import com.mikebishop.sycle.language.parser.SycleBaseListener;
 import com.mikebishop.sycle.language.parser.SycleParser;
 import com.mikebishop.sycle.memory.SymbolTable;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 
 public class SycleExecutor extends SycleBaseListener {
 
@@ -40,12 +41,11 @@ public class SycleExecutor extends SycleBaseListener {
     @Override
     public void exitAdditiveExpression(SycleParser.AdditiveExpressionContext ctx) {
         if (ctx.getChildCount() == 3) {
-            Double operand2 = operandStack.popDouble();
-            Double operand1 = operandStack.popDouble();
+            var operands = getOperands();
             String operator = ctx.getChild(1).getText();
             switch (operator) {
-                case "+" -> operandStack.push(operand1 + operand2);
-                case "-" -> operandStack.push(operand1 - operand2);
+                case "+" -> operandStack.push(operands.getLeft() + operands.getRight());
+                case "-" -> operandStack.push(operands.getLeft() - operands.getRight());
                 default -> {
                 }
             }
@@ -55,12 +55,11 @@ public class SycleExecutor extends SycleBaseListener {
     @Override
     public void exitMultiplicativeExpression(SycleParser.MultiplicativeExpressionContext ctx) {
         if (ctx.getChildCount() == 3) {
-            Double operand2 = operandStack.popDouble();
-            Double operand1 = operandStack.popDouble();
+            var operands = getOperands();
             String operator = ctx.getChild(1).getText();
             switch (operator) {
-                case "*" -> operandStack.push(operand1 * operand2);
-                case "/" -> operandStack.push(operand1 / operand2);
+                case "*" -> operandStack.push(operands.getLeft() * operands.getRight());
+                case "/" -> operandStack.push(operands.getLeft() / operands.getRight());
                 default -> {
                 }
             }
@@ -90,5 +89,11 @@ public class SycleExecutor extends SycleBaseListener {
         ParseTree child = ctx.getChild(0);
         String primaryText = child.getText();
         operandStack.push(symbolTable.recall(primaryText));
+    }
+
+    private ImmutablePair<Double, Double> getOperands() {
+        Double operand2 = operandStack.popDouble();
+        Double operand1 = operandStack.popDouble();
+        return new ImmutablePair<>(operand1, operand2);
     }
 }
