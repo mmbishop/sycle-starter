@@ -70,11 +70,10 @@ public class SycleExecutor extends SycleBaseListener {
     @Override
     public void exitUnaryExpression(SycleParser.UnaryExpressionContext ctx) {
         if (ctx.getChildCount() == 2) {
-            Double operand = operandStack.popDouble();
             ParseTree signNode = ctx.getChild(0);
             String sign = signNode.getText();
             if ("-".equals(sign)) {
-                operandStack.push(-operand);
+                operandStack.push(-operandStack.popDouble());
             }
         }
     }
