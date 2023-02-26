@@ -49,6 +49,11 @@
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.github.mmbishop</groupId>
+            <artifactId>gwt-test</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>

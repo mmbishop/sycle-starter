@@ -13,6 +13,10 @@
 package com.mikebishop.sycle.language.processor;
 
 import com.mikebishop.sycle.memory.SymbolTable;
+import io.github.mmbishop.gwttest.core.GwtTest;
+import io.github.mmbishop.gwttest.functions.GwtFunction;
+import io.github.mmbishop.gwttest.functions.GwtFunctionWithArgument;
+import io.github.mmbishop.gwttest.model.Context;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -20,74 +24,83 @@ import static org.hamcrest.Matchers.closeTo;
 
 public class SycleExpressionEvaluatorTest {
 
-    private Double result;
-    private SycleExpressionEvaluator evaluator;
+    private final GwtTest<TestContext> gwt = new GwtTest<>(TestContext.class);
 
     @Test
     void sycle_adds_two_numbers() {
-        given_a_sycle_evaluator();
-        when_the_evaluator_is_given_the_expression("3.6 + 7.3");
-        then_the_result_is(10.9);
+        gwt.test()
+                .given(a_sycle_evaluator)
+                .when(evaluating_the_expression, "3.6 + 7.3")
+                .then(the_evaluator_returns_the_result, 10.9);
     }
 
     @Test
     void sycle_substracts_two_numbers() {
-        given_a_sycle_evaluator();
-        when_the_evaluator_is_given_the_expression("12.7 - 7.4");
-        then_the_result_is(5.3);
+        gwt.test()
+                .given(a_sycle_evaluator)
+                .when(evaluating_the_expression, "12.7 - 7.4")
+                .then(the_evaluator_returns_the_result, 5.3);
     }
 
     @Test
     void sycle_multiplies_two_numbers() {
-        given_a_sycle_evaluator();
-        when_the_evaluator_is_given_the_expression("3.2 * 4.5");
-        then_the_result_is(14.4);
+        gwt.test()
+                .given(a_sycle_evaluator)
+                .when(evaluating_the_expression, "3.2 * 4.5")
+                .then(the_evaluator_returns_the_result, 14.4);
     }
 
     @Test
     void sycle_divides_two_numbers() {
-        given_a_sycle_evaluator();
-        when_the_evaluator_is_given_the_expression("12.6 / 3");
-        then_the_result_is(4.2);
+        gwt.test()
+                .given(a_sycle_evaluator)
+                .when(evaluating_the_expression, "12.6 / 3")
+                .then(the_evaluator_returns_the_result, 4.2);
     }
 
     @Test
     void sycle_enforces_operator_precedence() {
-        given_a_sycle_evaluator();
-        when_the_evaluator_is_given_the_expression("3 + 5 * 4");
-        then_the_result_is(23.0);
+        gwt.test()
+                .given(a_sycle_evaluator)
+                .when(evaluating_the_expression, "3 + 5 * 4")
+                .then(the_evaluator_returns_the_result, 23.0);
     }
 
     @Test
     void sycle_supports_overriding_of_operator_precedence() {
-        given_a_sycle_evaluator();
-        when_the_evaluator_is_given_the_expression("(3 + 5) * 4");
-        then_the_result_is(32.0);
+        gwt.test()
+                .given(a_sycle_evaluator)
+                .when(evaluating_the_expression, "(3 + 5) * 4")
+                .then(the_evaluator_returns_the_result, 32.0);
     }
 
     @Test
     void sycle_applies_unary_negative() {
-        given_a_sycle_evaluator();
-        when_the_evaluator_is_given_the_expression("3 + -7");
-        then_the_result_is(-4.0);
+        gwt.test()
+                .given(a_sycle_evaluator)
+                .when(evaluating_the_expression, "3 + -7")
+                .then(the_evaluator_returns_the_result, -4.0);
     }
 
     @Test
     void sycle_applies_unary_positive() {
-        given_a_sycle_evaluator();
-        when_the_evaluator_is_given_the_expression("3 - +7");
-        then_the_result_is(-4.0);
+        gwt.test()
+                .given(a_sycle_evaluator)
+                .when(evaluating_the_expression, "3 - +7")
+                .then(the_evaluator_returns_the_result, -4.0);
     }
 
-    private void given_a_sycle_evaluator() {
-        evaluator = new SycleExpressionEvaluator(new SymbolTable());
+    private final GwtFunction<TestContext> a_sycle_evaluator = context -> context.evaluator = new SycleExpressionEvaluator(new SymbolTable());
+
+    private final GwtFunctionWithArgument<TestContext, String> evaluating_the_expression
+            = (context, expression) -> context.result = context.evaluator.evaluateExpression(expression);
+
+    private final GwtFunctionWithArgument<TestContext, Double> the_evaluator_returns_the_result
+            = (context, expectedResult) -> assertThat(context.result, closeTo(expectedResult, 0.01));
+
+    public static final class TestContext extends Context {
+        Double result;
+        SycleExpressionEvaluator evaluator;
     }
 
-    private void when_the_evaluator_is_given_the_expression(String expression) {
-        result = evaluator.evaluateExpression(expression);
-    }
-
-    private void then_the_result_is(Double expectedResult) {
-        assertThat(result, closeTo(expectedResult, 0.01));
-    }
 }
